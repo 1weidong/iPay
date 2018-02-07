@@ -1,113 +1,71 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
-  </div>
+  <header class="header">
+    <div class="header_inner flexWrap">
+      <div
+        id="header_btn_nav"
+        class="header_btn header_btn_back"
+        @:click="goBack"
+        >返回</div>
+      <div class="header_cont flex">详情</div>
+      <div class="header_btn header_btn_cart"></div>
+    </div>
+  </header>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  methods: {
+    goBack () {
+      window.history.back();
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style>
+  .flexWrap {
+    display: -webkit-flex;
+    display: flex;
+  }
+  .flex {
+    flex: 1;
+  }
+  .header {
+    height: 0.88rem;
+  }
+  .header_inner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    max-width: 640px;
+    height: 0.88rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0 0.24rem;
+    border-bottom: 0.02rem solid #80ccd6;
+    background-color: #fff;
+  }
+  .header_btn {
+    width: 0.5rem;
+    height: 100%;
+    background-repeat: no-repeat;
+  }
+  .header_btn_back {
+    line-height: 0.86rem;
+  }
+  .header_cont {
+    text-align: center;
+    padding: 0 0.4rem;
+    line-height: 0.86rem;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .header_btn:active {
+    opacity: 0.7;
+  }
 </style>
